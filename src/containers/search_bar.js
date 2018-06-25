@@ -3,11 +3,17 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/index';
 
+/**
+ * Search Bar Component
+ * 
+ * @class
+ */
 class SearchBar extends Component {
 
   constructor(props) {
     super(props);
     
+    // Init State
     this.state = { term: '' };
 
     // Binding This
@@ -48,8 +54,10 @@ class SearchBar extends Component {
   }
 }
 
+// Actions To Props
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchWeather }, dispatch);
 }
 
+// Connect To Redux
 export default connect(null, mapDispatchToProps)(SearchBar);

@@ -3,14 +3,20 @@ import { connect } from 'react-redux';
 
 import Chart from '../components/chart';
 
+/**
+ * Weather List Component
+ * 
+ * @class
+ */
 class WeatherList extends Component {
   
-  // Render Weather
+  // Render Weather Chart
   renderWeather(cityData) {
-    const cityName = cityData.city.name;
-    const temps = cityData.list.map(weather => weather.main.temp);
-    const pressures = cityData.list.map(weather => weather.main.pressure);
-    const humidities = cityData.list.map(weather => weather.main.humidity);
+    const 
+      cityName = cityData.city.name,
+      temps = cityData.list.map(weather => weather.main.temp),
+      pressures = cityData.list.map(weather => weather.main.pressure),
+      humidities = cityData.list.map(weather => weather.main.humidity);
 
     return (
       <tr key={cityName}>
@@ -22,6 +28,7 @@ class WeatherList extends Component {
     );
   }
 
+  // Render
   render() {
     return (
       <table className="table table-hover">
@@ -41,8 +48,10 @@ class WeatherList extends Component {
   }
 };
 
+// Reducers State To Props
 function mapStateToProps({ weather}) {
   return { weather };
 }
 
+// Connect To Redux
 export default connect(mapStateToProps)(WeatherList);
